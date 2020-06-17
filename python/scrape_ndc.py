@@ -5,15 +5,15 @@ import os
 
 #Delete all tooltips (<span>)
 def deleteSpans(table):
-	for tr in table.findAll('tr'):
+	for tr in table.find_all('tr'):
 		for span in tr('span'):
 			span.decompose()
 
 #Parse tables into readable form
 def parseTable(table):
 	new_table = []
-	for tr in table.findAll('tr'):
-		columns = tr.findAll('td')
+	for tr in table.find_all('tr'):
+		columns = tr.find_all('td')
 		output_row = []
 		for col in columns:
 			output_row.append(col.text)

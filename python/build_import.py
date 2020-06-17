@@ -5,15 +5,15 @@ import os
 
 #Function for formatting tabular data to tremove tooltips
 def deleteSpans(table):
-	for tr in table.findAll('tr'):
+	for tr in table.find_all('tr'):
 		for span in tr('span'):
 			span.decompose()
 
 #Function to parse tables from bs4 into list data
 def parseTable(table):
 	new_table = []
-	for tr in table.findAll('tr'):
-		columns = tr.findAll('td')
+	for tr in table.find_all('tr'):
+		columns = tr.find_all('td')
 		output_row = []
 		for col in columns:
 			output_row.append(col.text)
