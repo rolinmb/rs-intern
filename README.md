@@ -33,13 +33,13 @@ This implementation uses 'import_tempxl.xlsx' as the template and 'new_import.xl
 	<li><b>js_scrape.js</b>
 		<ul>
 			<li>Description of js_scrape.js</li>
-			<li><i>Dependencies</i>: </li>
+			<li><i>Dependencies</i>: axios.js, cheerio.js, xlsx(sheetJS)</li>
 		</ul>
 	</li>
 	<li><b>app.js</b>
 		<ul>
 			<li>Description of app.js</li>
-			<li><i>Dependencies</i>: </li>
+			<li><i>Dependencies</i>: axios.js, cheerio.js, express.js, mime, xlsx(sheetJS)</li>
 		</ul>
 	</li>
 </ul>
