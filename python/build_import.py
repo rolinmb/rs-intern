@@ -21,6 +21,7 @@ def parseTable(table):
 	return new_table			
 
 #Function to match data from html page to the .csv file, loaded into a dataframe
+# Same as buildXlsx from scrape_ndc.py, but for individual rows
 def buildRow(df,row,t1_rows,t2_rows):
 	#Initialize the row to be empty
 	df.loc[row] = [None]*54
@@ -58,23 +59,19 @@ def getCodes():
 #for each individual ndc input
 if __name__ == '__main__':
 	print('NOTE: use NDC codes with dropped zeros')  
-	print('    Ex => 50242-0040-62 => 50242-040-62\n') #this is Xolair's NDC
-	#Get the ndc codes for importing from codes.txt file
+	print('    Ex => 50242-0040-62 => 50242-040-62\n')
 	ndc_codes = getCodes()
 	print("Captured NDC's: ", ndc_codes, "\n")
-	#Read initially empty dataframe that will be converted to xlsx
 	import_frame = pd.read_csv("import_temp.csv")
 	#For each code, preform a search and get the tabular data and parse into the import sheet
 	cur_row = 0
 	for code in ndc_codes:
 		#Create the url for searching the item on NDCList.com
 		url = 'http://ndclist.com/ndc/' + code + '/package/' + code
-		#Make a request to NDCList.com, then gett the response and pass to bs4
 		req = urllib.request.Request(url,headers={'User-Agent' : "Magic Browser"})
 		response = urllib.request.urlopen(req)
 		html = response.read()
 		soup = BeautifulSoup(html,'html.parser')
-		#Get the tabular data and format it for use
 		table1 = soup.find('table', {'class':'table table-hover table-striped'})
 		table2 = soup.find('table', {'class':'table table-striped'})
 		deleteSpans(table1)
