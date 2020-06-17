@@ -8,16 +8,18 @@ on www.ndclist.com, then parse the response html for necessary data to build ite
 
 # /python
 Contains the most complete python implementation for the NDC Web-Scraping project.<br />
-The python implementation creates a .csv file from import_temp.csv, then uses pandas to create the target .xlsx file for importing.<br />
+The python implementation uses import_temp.csv as the template and uses pandas to create new_import.xlsx as the target import file.<br />
 <ul>
 	<li><b>scrape_ndc.py</b>
 		<ul>
 			<li>Description of scrape_ndc.py</li>
+			<li>Dependencies: </li>
 		</ul>
 	</li>
 	<li><b>build_import.py</b>
 		<ul>
 			<li>Description of build_import.py</li>
+			<li>Dependencies: </li>
 		</ul>
 	</li>
 </ul>
@@ -25,16 +27,18 @@ The python implementation creates a .csv file from import_temp.csv, then uses pa
 
 # /node
 Contains incomplete node.js implementaiton of NDC Web-Scraping project.<br />
-This implementation uses purely .xlsx files as the template and target import file.<br />
+This implementation uses import_tempxl.xlsx as the template and new_import.xlsx as the target import file.<br />
 <ul>
 	<li><b>js_scrape.js</b>
 		<ul>
 			<li>Description of js_scrape.js</li>
+			<li>Dependencies: </li>
 		</ul>
 	</li>
 	<li><b>app.js</b>
 		<ul>
 			<li>Description of app.js</li>
+			<li>Dependencies: </li>
 		</ul>
 	</li>
 </ul>
