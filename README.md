@@ -39,7 +39,7 @@ This implementation uses 'import_tempxl.xlsx' as the template and 'new_import.xl
 	</li>
 	<li><b>app.js</b>
 		<ul>
-			<li>Incomplete web-application that operates on localhost, serves a HTML form where user can input NDC codes.</li>
+			<li>Incomplete web-application that operates on localhost, serves a HTML form where user can input NDC multiple codes.</li>
 			<li>Does not build 'new_import.xlsx' with data as code stands currently.</li>
 			<li><i>Dependencies</i>: axios.js, cheerio.js, express.js, mime, xlsx(sheetJS)</li>
 		</ul>
