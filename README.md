@@ -32,13 +32,15 @@ This implementation uses 'import_tempxl.xlsx' as the template and 'new_import.xl
 <ul>
 	<li><b>js_scrape.js</b>
 		<ul>
-			<li>Description of js_scrape.js</li>
+			<li>Incomplete web-scraping script for single NDC code. Formats query and recieves, then parses HTML for required data.</li>
+			<li>Does not build 'new_import.xlsx' with data as code stands currently.</li>
 			<li><i>Dependencies</i>: axios.js, cheerio.js, xlsx(sheetJS)</li>
 		</ul>
 	</li>
 	<li><b>app.js</b>
 		<ul>
-			<li>Description of app.js</li>
+			<li>Incomplete web-application that operates on localhost, serves a HTML form where user can input NDC codes.</li>
+			<li>Does not build 'new_import.xlsx' with data as code stands currently.</li>
 			<li><i>Dependencies</i>: axios.js, cheerio.js, express.js, mime, xlsx(sheetJS)</li>
 		</ul>
 	</li>
