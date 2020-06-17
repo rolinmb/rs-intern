@@ -8,6 +8,19 @@ on www.ndclist.com, then parse the response html for necessary data to build ite
 
 # /python
 Contains the most complete python implementation for the NDC Web-Scraping project.<br />
+<ul>
+	<li>scrape_ndc.py
+	</li>
+	<li>build_import.py
+	</li>
+</ul>
+
 
 # /node
 Contains incomplete node.js implementaiton of NDC Web-Scraping projcet.<br />
+<ul>
+	<li>js_scrape.js
+	</li>
+	<li>app.js
+	</li>
+</ul>
