@@ -22,9 +22,9 @@ function getData(html){
 
 //Use XLSX Package to open import_tempxl.xlsx file; 
 //We are only using the first worksheet
-//var import_wb = xlsx.readFile('import_tempxl.xlsx');
-//var worksheet = import_wb.Sheets[import_wb.SheetNames[0]];
-//xlsx.writeFile(import_wb,'new_import.xlsx');
+var import_wb = xlsx.readFile('import_tempxl.xlsx');
+var worksheet = import_wb.Sheets[import_wb.SheetNames[0]];
+xlsx.writeFile(import_wb,'new_import.xlsx');
 
 //Get NDC codes froms serverside html page
 
@@ -53,4 +53,4 @@ axios.get(url)
 
 
 //Write import_wb to filename new_import.xlsx to finish
-//xlsx.writeFile(import_wb, 'new_import.xlsx');
+xlsx.writeFile(import_wb, 'new_import.xlsx');
