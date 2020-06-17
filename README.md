@@ -6,8 +6,8 @@ on www.ndclist.com, then parse the response html for necessary data to build ite
 <li>The scraped data would be formatted and build into .xlsx files which are then able to be uploaded to Relia-Source's live database.</li>
 </ul>
 <br />
-# /python
-Contains the most complete implementation for the NDC Web-Scraping project.<br />
+# / python
+Contains the most complete python implementation for the NDC Web-Scraping project.<br />
 
-# /node
-Contains incomplete implementaiton of NDC Web-Scraping projcet.<br />
+# / node
+Contains incomplete node.js implementaiton of NDC Web-Scraping projcet.<br />
