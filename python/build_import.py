@@ -40,7 +40,6 @@ def buildRow(df,row,t1_rows,t2_rows):
 	df.loc[row][10] = df.loc[row][7]               		 #Substance Name is same as Non-Proprietary
 	df.loc[row][8] = t1_rows[9][1].split('-')[0]         #Dosage Form Name
 	df.loc[row][9] = t1_rows[10][1].split('-')[0]        #Route Name
-	
 	return df
 
 #Function to open .txt file containing codes for use in next script callable
@@ -57,48 +56,40 @@ def getCodes():
 #EXECUTION STARTS HERE;	
 #Scaled version of scrape_ndc.py; takes multiple ndc codes as inputs and outputs a file populated with information 
 #for each individual ndc input
-print('NOTE: use NDC codes with dropped zeros')  
-print('    Ex => 50242-0040-62 => 50242-040-62\n') #this is Xolair's NDC
+if __name__ == '__main__':
+	print('NOTE: use NDC codes with dropped zeros')  
+	print('    Ex => 50242-0040-62 => 50242-040-62\n') #this is Xolair's NDC
+	#Get the ndc codes for importing from codes.txt file
+	ndc_codes = getCodes()
+	print("Captured NDC's: ", ndc_codes, "\n")
+	#Read initially empty dataframe that will be converted to xlsx
+	import_frame = pd.read_csv("import_temp.csv")
+	#For each code, preform a search and get the tabular data and parse into the import sheet
+	cur_row = 0
+	for code in ndc_codes:
+		#Create the url for searching the item on NDCList.com
+		url = 'http://ndclist.com/ndc/' + code + '/package/' + code
+		#Make a request to NDCList.com, then gett the response and pass to bs4
+		req = urllib.request.Request(url,headers={'User-Agent' : "Magic Browser"})
+		response = urllib.request.urlopen(req)
+		html = response.read()
+		soup = BeautifulSoup(html,'html.parser')
+		#Get the tabular data and format it for use
+		table1 = soup.find('table', {'class':'table table-hover table-striped'})
+		table2 = soup.find('table', {'class':'table table-striped'})
+		deleteSpans(table1)
+		deleteSpans(table2)
+		#Parse html_tables into list of rows representation
+		output_rows1 = parseTable(table1)
+		output_rows2 = parseTable(table2)
+		#Build and append the row for the current ndc code, builds driectly into frame (no returning)
+		import_frame = buildRow(import_frame,cur_row,output_rows1,output_rows2)
+		#Increment current row marker before next iteration
+		cur_row += 1
+		print("Finished with NDC: " + code)
 
-#Get the ndc codes for importing from codes.txt file
-ndc_codes = getCodes()
-print("Captured NDC's: ", ndc_codes, "\n")
-
-#Read initially empty dataframe that will be converted to xlsx
-import_frame = pd.read_csv("import_temp.csv")
-
-#For each code, preform a search and get the tabular data and parse into the import sheet
-cur_row = 0
-for code in ndc_codes:
-	#Create the url for searching the item on NDCList.com
-	url = 'http://ndclist.com/ndc/' + code + '/package/' + code
-	
-	#Make a request to NDCList.com, then gett the response and pass to bs4
-	req = urllib.request.Request(url,headers={'User-Agent' : "Magic Browser"})
-	response = urllib.request.urlopen(req)
-	html = response.read()
-	soup = BeautifulSoup(html,'html.parser')
-	
-	#Get the tabular data and format it for use
-	table1 = soup.find('table', {'class':'table table-hover table-striped'})
-	table2 = soup.find('table', {'class':'table table-striped'})
-	deleteSpans(table1)
-	deleteSpans(table2)
-	
-	#Parse html_tables into list of rows representation
-	output_rows1 = parseTable(table1)
-	output_rows2 = parseTable(table2)
-	
-	#Build and append the row for the current ndc code, builds driectly into frame (no returning)
-	import_frame = buildRow(import_frame,cur_row,output_rows1,output_rows2)
-	
-	#Increment current row marker before next iteration
-	cur_row += 1
-	print("Finished with NDC: " + code)
-	
-#print(import_frame)
-	
-#The import_frame should now contain populated data for all ndc codes
-#Finally conver the frame to xlsx sheet
-import_frame.to_excel("new_import.xlsx",index=False)
-print("\nFile-Path: new_import.xlsx Has been updated")
+	#print(import_frame)	
+	#The import_frame should now contain populated data for all ndc codes
+	#Finally conver the frame to xlsx sheet
+	import_frame.to_excel("new_import.xlsx",index=False)
+	print("\nFile-Path: new_import.xlsx Has been updated")
