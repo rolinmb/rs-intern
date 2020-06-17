@@ -5,7 +5,7 @@ This repository contains web-srapers implemented in Python and JavaScript(Node.j
 on www.ndclist.com, then parse the response html for necessary data to build items on Relia-Source's website.</li>
 <li>The scraped data would be formatted and build into .xlsx files which are then able to be uploaded to Relia-Source's live database.</li>
 </ul>
-<br />
+
 # python
 Contains the most complete python implementation for the NDC Web-Scraping project.<br />
 
