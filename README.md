@@ -26,7 +26,7 @@ The python implementation uses 'import_temp.csv' as the template and uses pandas
 
 
 # /node
-Contains incomplete node.js implementaiton of NDC Web-Scraping project. 
+Contains incomplete node.js implementaiton of the NDC Web-Scraping project. 
 This implementation uses 'import_tempxl.xlsx' as the template and 'new_import.xlsx' as the target import file.<br />
 <ul>
 	<li><b>js_scrape.js</b>
