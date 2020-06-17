@@ -53,7 +53,7 @@ def getCodes():
 		codes.append(line)
 	f.close()
 	return codes
-	
+
 #EXECUTION STARTS HERE;	
 #Scaled version of scrape_ndc.py; takes multiple ndc codes as inputs and outputs a file populated with information 
 #for each individual ndc input
