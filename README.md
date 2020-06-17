@@ -13,14 +13,14 @@ The python implementation uses 'import_temp.csv' as the template and uses pandas
 	<li><b>scrape_ndc.py</b>
 		<ul>
 			<li>Accepts a single NDC code, formats query, scrapes data, then creates single row in 'new_import.xlsx' with required data.</li>
-			<li>Dependencies: BeautifulSoup, Pandas</li>
+			<li><i>Dependencies</i>: BeautifulSoup, Pandas</li>
 		</ul>
 	</li>
 	<li><b>build_import.py</b>
 		<ul>
 			<li>Accepts a multitude of NDC codes from 'codes.txt', formats a query for each code, scrapes data, 
 				and builds a row for each code in 'new_import.xlsx' with required data</li>
-			<li>Dependencies: BeautifulSoup, Pandas</li>
+			<li><i>Dependencies</i>: BeautifulSoup, Pandas</li>
 		</ul>
 	</li>
 </ul>
@@ -33,13 +33,13 @@ This implementation uses 'import_tempxl.xlsx' as the template and 'new_import.xl
 	<li><b>js_scrape.js</b>
 		<ul>
 			<li>Description of js_scrape.js</li>
-			<li>Dependencies: </li>
+			<li><i>Dependencies</i>: </li>
 		</ul>
 	</li>
 	<li><b>app.js</b>
 		<ul>
 			<li>Description of app.js</li>
-			<li>Dependencies: </li>
+			<li><i>Dependencies</i>: </li>
 		</ul>
 	</li>
 </ul>
