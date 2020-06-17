@@ -18,7 +18,7 @@ The python implementation uses 'import_temp.csv' as the template and uses pandas
 	</li>
 	<li><b>build_import.py</b>
 		<ul>
-			<li>Accepts a multitude of NDC codes from 'codes.txt', formats a query for each code, scrapes data, 
+			<li>Accepts a multitude of NDC codes as individual lines in 'codes.txt', formats a query for each code, scrapes data, 
 				and builds a row for each code in 'new_import.xlsx' with required data</li>
 			<li><i>Dependencies</i>: BeautifulSoup, Pandas</li>
 		</ul>
