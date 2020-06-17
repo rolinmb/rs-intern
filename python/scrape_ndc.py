@@ -3,16 +3,6 @@ import urllib.request
 import pandas as pd
 import os
 
-'''
-Prototype; will be scaled up to search and scrape any number of ndc codes
-PROGRAM PROCESS OUTLINE
-1) Get NDC from user input (create usable interfae in future?)
-2) Use BeautifulSoup to get html content (tabular data) with formatted url/querey
-	- includes dropping extraneous data
-3) Open "new_import.csv" with pd and write data to proper columns
-4) Convert "new_import.csv" to .xlsx for use on relia-source.com
-'''
-
 #1)
 #Get search term as a string to pass
 print('NOTE: use NDC codes with dropped zeros')  
