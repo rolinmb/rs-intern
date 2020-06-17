@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>NDC Import Builder</title>
+	<script>
+		//Container for the codes given by user-input in form below
+		var codes = [];
+	</script>
+</head>
+<body>
+	<div id="ndcForm">
+		<form method="POST" action="/submit" onsubmit="alert('POST Request to be sent to server.');">
+			<p>Enter NDC Codes to Build an Import Template!</p><br>
+			<p>NOTE: use NDC codes with dropped zeros</p>
+			<p>    Ex => 50242-0040-62 => 50242-040-62</p><br>
+			<label>NDC Code: </label><br>
+			<input type="text" id="code" placeholder="Type Code Here"><br>
+			<input type="button" id="updater" value="Add NDC Code" />
+			<input type="submit" value="Submit Import" />
+			<!-- Hidden Input which is concatenation of user-inputs sent to server-->
+			<input type="hidden" id="codeList" name="ndcList" value="" />
+		</form>
+		<script>
+		//Defines onclick event handling for adding a single NDC Code
+		document.getElementById("updater").onclick = function () {
+			//Get the user input from id = "code" block
+			var ndc = document.getElementById("code").value;
+			
+			//push into our static array for the browser
+			codes.push(ndc);
+			
+			//update hidden input codeList with the new ndc as well (by appending code to value string)
+			document.getElementById("codeList").value += ndc + " ";
+			//Now codeList.value will be formatted like: "code1 code2 code3 ..."
+			
+			//Format message to display in browser
+			var message = "NDC [" + ndc + "] has been added to the import";
+			alert(message);
+			//alert("Current NDC List: " + codes);
+			
+			//Updating the entryPane below to show current NDC codes entered by user
+			document.getElementById("enteredCodes").innerHTML += ndc + "<br />";
+			
+			//resetting the value of the user input code box
+			document.getElementById("code").value = "";			
+		}
+		</script>
+	</div>
+	<div id="entryPane">
+		<h3>NDC Codes Entered:</h3>
+		<p id="enteredCodes"></p>
+	</div>
+</body>
+</html>
