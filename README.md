@@ -9,9 +9,15 @@ on www.ndclist.com, then parse the response html for necessary data to build ite
 # /python
 Contains the most complete python implementation for the NDC Web-Scraping project.<br />
 <ul>
-	<li>scrape_ndc.py
+	<li><b>scrape_ndc.py</b>
+		<ul>
+			<li>Description of scrape_ndc.py</li>
+		</ul>
 	</li>
-	<li>build_import.py
+	<li><b>build_import.py</b>
+		<ul>
+			<li>Description of build_import.py</li>
+		</ul>
 	</li>
 </ul>
 
@@ -19,8 +25,14 @@ Contains the most complete python implementation for the NDC Web-Scraping projec
 # /node
 Contains incomplete node.js implementaiton of NDC Web-Scraping projcet.<br />
 <ul>
-	<li>js_scrape.js
+	<li><b>js_scrape.js</b>
+		<ul>
+			<li>Description of js_scrape.js</li>
+		</ul>
 	</li>
-	<li>app.js
+	<li><b>app.js</b>
+		<ul>
+			<li>Description of app.js</li>
+		</ul>
 	</li>
 </ul>
